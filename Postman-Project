@@ -1,0 +1,137 @@
+{
+"info": {
+"_postman_id": "52aa09ff-cd5a-4404-8d09-0d9dc7e89224", "name": "OpenWeatherAPI",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json", "_exporter_id": "31715035"
+},
+"item": [
+{
+"name": "GetWeatherLatLong", "request": {
+"method": "GET",
+"header": [], "url": {
+"raw": "{{Base_URL}}?lat=44.34&lon=10.99&appid=8830f2f1786dc89926804878f9eae8a7", "host": [
+"{{Base_URL}}"
+],
+"query": [
+{
+"key": "lat",
+"value": "44.34"
+},
+{
+"key": "lon",
+"value": "10.99"
+},
+{
+"key": "appid",
+ 
+"value": "8830f2f1786dc89926804878f9eae8a7"
+}
+]
+}
+},
+"response": []
+},
+{
+"name": "GetCityID", "request": {
+"method": "GET",
+"header": [], "url": {
+"raw": "{{Base_URL}}?id=1261481&appid=8830f2f1786dc89926804878f9eae8a7", "host": [
+"{{Base_URL}}"
+],
+"query": [
+{
+"key": "id",
+"value": "1261481"
+},
+{
+"key": "appid",
+"value": "8830f2f1786dc89926804878f9eae8a7"
+}
+]
+}
+},
+"response": []
+},
+ 
+{
+"name": "GetCityByName", "event": [
+{
+"listen": "prerequest", "script": {
+"exec": [
+"pm.environment.set(\"City\", \"London\");\r", ""
+],
+"type": "text/javascript"
+}
+}
+],
+"request": {
+"method": "GET",
+"header": [], "url": {
+"raw": "{{Base_URL}}?q={{City}} &appid=8830f2f1786dc89926804878f9eae8a7", "host": [
+"{{Base_URL}}"
+],
+"query": [
+{
+"key": "q",
+"value": "{{City}} "
+},
+{
+"key": "appid",
+"value": "8830f2f1786dc89926804878f9eae8a7"
+}
+ 
+]
+}
+},
+"response": []
+},
+{
+"name": "GetByLangauge", "request": {
+"method": "GET",
+"header": [], "url": {
+"raw": "{{Base_URL}}?id=524901&lang=fr&appid=8830f2f1786dc89926804878f9eae8a7", "host": [
+"{{Base_URL}}"
+],
+"query": [
+{
+"key": "id",
+"value": "524901"
+},
+{
+"key": "lang",
+"value": "fr"
+},
+{
+"key": "appid",
+"value": "8830f2f1786dc89926804878f9eae8a7"
+}
+]
+}
+},
+ 
+"response": []
+}
+]
+}
+
+
+Environment Code:
+{
+"id": "4f48202a-0896-4b96-a23d-11a9610ba8d5",
+"name": "QA_Envi", "values": [
+{
+"key": "Base_URL",
+"value": "https://api.openweathermap.org/data/2.5/weather", "type": "default",
+"enabled": true
+},
+{
+"key": "City",
+"value": "London",
+"type": "any",
+"enabled": true
+},
+
+
+],
+"_postman_variable_scope": "environment",
+"_postman_exported_at": "2023-12-14T10:35:58.194Z", "_postman_exported_using": "Postman/10.21.2"
+}
